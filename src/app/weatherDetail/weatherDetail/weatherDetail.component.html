@@ -1,0 +1,115 @@
+<!-- <span> City : {{searchedCity?.name}}  </span> -->
+<!-- <span >Enter City</span> -->
+<!-- <input type="text" placeholder="Search city" [(ngModel)]="searchCity" (keyup)="search()" /> -->
+  <!-- (keyup)="search()" -->
+<div class="card_wrapper">
+<div class="main_card">
+<!-- <span>Enter City: </span> -->
+<mat-form-field appearance="fill" class="form_field">
+  <input matInput  placeholder="{{searchCityPlacholder}}" [(ngModel)]="searchCity" (keyup)="search()" />
+  <mat-icon matSuffix>
+<img src="../../../assets/images/search-interface-symbol.png" alt="search_btn" style="width: 18px;">
+  </mat-icon>
+</mat-form-field>
+<!-- <mat-card *ngIf="searchedCity">
+  <div class="search_city">
+    <div class="temp_outer">
+    <img src="../../../assets/images/sunny_(1).png" alt="weather_image" >
+    <span class="temp">{{searchedCity.temperature}} </span>
+    </div>
+    <div>
+    <p> Wind : {{searchedCity.wind}} </p>
+    <p>Humidity :  {{searchedCity.humidity}}</p>
+  </div>
+</div>
+</mat-card> -->
+<mat-card >
+    <p class="card_styles">{{formattedDate}} Local Time : {{formatedTime}}</p>
+    <h2 class="card_styles">{{location | titlecase}}</h2>
+    <div class="all_weather_info card_styles">
+       <div class="div_width">
+        <img *ngIf="checkAfterNoon" src="../../../assets/images/sunny_(1).png" alt="day">
+        <img *ngIf="checkNight" src="../../../assets/images/night-mode.png" alt="night">
+        <img *ngIf="checkMidNight" src="../../../assets/images/full-moon.png" alt="mid-night">
+        <img *ngIf="checkEvening" src="../../../assets/images/svg.png" alt="evening">
+       </div>
+       <div class="div_width">
+          <p class="degree">{{temperature}}<sup>o</sup></p>
+       </div>
+       <div class="div_width">
+        <ul>
+          <li>Info 1</li>
+          <li>Info 2</li>
+          <li>Info 3</li>
+        </ul>
+       </div>
+    </div>
+    <div class="more_info">
+      <div class="rise_div div_width_2">
+        <img src="../../../assets/images/sunny.png" alt="Rise" class="img_mobile laptop_size">
+        <span class="more_info_inner">rise time  </span>
+      </div>
+      <div class="set_div div_width_2">
+        <img src="../../../assets/images/sunny.png" alt="Rise" class="img_mobile laptop_size" >
+        <span class="more_info_inner">rise time</span>
+
+      </div>
+      <div class="high_div div_width_2">
+        <img src="../../../assets/images/sunny.png" alt="Rise"  class="img_mobile laptop_size">
+        <span class="more_info_inner">rise time </span>
+      </div>
+      <div class="low_div div_width_2">
+        <img src="../../../assets/images/sunny.png" alt="Rise"  class="img_mobile laptop_size">
+        <span class="more_info_inner">rise time </span>
+      </div>
+    </div>
+    <div class="daily_forecast_wrapper">
+    <div>
+      <p class="daily_forecast"><b>DAILY FORECAST</b></p>
+    </div>
+    <hr class="hr_1">
+    <div class="forecast_wrapper">
+    <div class="forecast">
+    <div>
+      <p class="bold">Fri</p>
+      <p>High: 88</p>
+      <p>Low: 80</p>
+      <p>Mostly Sunny</p>
+    </div>
+    <div>
+      <p class="bold">Fri</p>
+      <p>High: 88</p>
+      <p>Low: 80</p>
+      <p>Mostly Sunny</p>
+    </div>
+    <div>
+      <p class="bold">Fri</p>
+      <p>High: 88</p>
+      <p>Low: 80</p>
+      <p>Mostly Sunny</p>
+    </div>
+    <div>
+      <p class="bold">Fri</p>
+      <p>High: 88</p>
+      <p>Low: 80</p>
+      <p>Mostly Sunny</p>
+    </div>
+    <div>
+      <p class="bold">Fri</p>
+      <p>High: 88</p>
+      <p>Low: 80</p>
+      <p>Mostly Sunny</p>
+    </div>
+  </div>
+</div>
+</div>
+</mat-card>
+
+<mat-card *ngIf="showDiv">
+  <div data-test-id="no-results">No Results Found</div>
+</mat-card>
+</div>
+</div>
+
+
+

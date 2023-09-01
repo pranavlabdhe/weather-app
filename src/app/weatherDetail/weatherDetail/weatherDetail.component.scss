@@ -1,0 +1,294 @@
+
+.card_wrapper{
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  padding-top: 24px;
+  width: 100%;
+  height: 100vh;
+}
+.form_field{
+  margin-left: 10px;
+  width: 97%;
+}
+.main_card{
+  width: 50%;
+  border: 1px  solid black;
+  background-color: #F9FAFA;
+  padding: 16px;
+  height: fit-content;
+}
+.search_city{
+  display: flex;
+  gap: 15px;
+}
+.temp_outer{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.temp{
+  font-size: 32px;
+}
+.card_styles{
+  text-align: center;
+}
+.all_weather_info{
+  display: flex;
+  justify-content: center;
+}
+.div_width{
+  width: 33.3%;
+}
+.div_width ul{
+  list-style-type: none;
+  padding: 0px;
+}
+.rise_div,.set_div,.high_div,.low_div{
+  position: relative;
+}
+
+.more_info_inner{
+  position: absolute;
+  top: -2px;
+  left: 22px;
+}
+.set_time{
+
+}
+.more_info{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.div_width_2{
+  width: 15%;
+}
+
+.daily_forecast{
+    width: 56%;
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
+}
+.hr_1{
+  width: 60%;
+}
+.forecast{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px;
+  width: 60%;
+}
+.forecast_wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.bold{
+  font-weight: bold;
+}
+.laptop_size{
+  width: 14px;
+}
+// Mobile phone
+@media screen and (max-width:599px) {
+  .all_weather_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .more_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .more_info_inner{
+    position: absolute;
+    top: 0px;
+    left: 36%;
+    display: flex;
+    width: 100%;
+  }
+  .div_width_2{
+    width: 35% !important;
+  }
+  .vl{
+    display: none;
+  }
+  .img_mobile{
+
+  }
+  .laptop_size{
+    width: auto;
+  }
+  .forecast{
+    flex-direction: column;
+  }
+  .daily_forecast{
+    width: 98%;
+  }
+  .degree{
+    font-size: 50px;
+    // text-align: end;
+  }
+  .main_card{
+    width: 90%;
+  }
+}
+// Small Tablet
+@media (min-width: 600px) and (max-width: 767px) {
+  .all_weather_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .more_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .more_info_inner{
+    position: absolute;
+    top: 0px;
+    left: 36%;
+    display: flex;
+    width: 100%;
+  }
+  .div_width_2{
+    width: 19% !important;
+  }
+  .vl{
+    display: none;
+  }
+  .img_mobile{
+
+  }
+  .laptop_size{
+    width: auto;
+  }
+  .forecast{
+    // flex-direction: column;
+  }
+  .daily_forecast{
+    width: 98%;
+  }
+  .degree{
+    font-size: 50px;
+    // text-align: end;
+  }
+  .main_card{
+    width: 90%;
+  }
+}
+// Small Laptops
+@media (min-width: 768px) and (max-width: 991px) {
+  .all_weather_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .more_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .more_info_inner{
+    position: absolute;
+    top: 0px;
+    left: 36%;
+    display: flex;
+    width: 100%;
+  }
+  .div_width_2{
+    width: 13% !important;
+  }
+  .vl{
+    display: none;
+  }
+  .img_mobile{
+
+  }
+  .laptop_size{
+    width: auto;
+  }
+  .forecast{
+    // flex-direction: column;
+    // gap: 0px;
+    width: 100% !important
+  }
+  .daily_forecast{
+    width: 98%;
+  }
+  .main_card{
+    width: 90%;
+  }
+}
+// Large Laptops and Desktops
+@media (min-width: 992px) and (max-width: 1199px) {
+  .all_weather_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .more_info{
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .more_info_inner{
+    position: absolute;
+    top: 0px;
+    left: 36%;
+    display: flex;
+    width: 100%;
+  }
+  .div_width_2{
+    width: 13% !important;
+  }
+  .vl{
+    display: none;
+  }
+  .img_mobile{
+
+  }
+  .laptop_size{
+    width: auto;
+  }
+  .forecast {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    width: 70%;
+}
+  .daily_forecast{
+    width: 98%;
+  }
+  .hr_1{
+    width: 90%;
+  }
+  .main_card{
+    width: 90%;
+  }
+}
+// Extra Large devices
+@media (min-width: 1200px) {
+ .more_info{
+  gap: 30px;
+ }
+ .vl{
+  display: none;
+ }
+ .daily_forecast_wrapper{
+  padding: 24px
+ }
+}
+.degree{
+  font-size: 50px;
+}
+
