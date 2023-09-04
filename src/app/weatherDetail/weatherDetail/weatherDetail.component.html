@@ -1,28 +1,12 @@
-<!-- <span> City : {{searchedCity?.name}}  </span> -->
-<!-- <span >Enter City</span> -->
-<!-- <input type="text" placeholder="Search city" [(ngModel)]="searchCity" (keyup)="search()" /> -->
-  <!-- (keyup)="search()" -->
+
 <div class="card_wrapper">
 <div class="main_card">
-<!-- <span>Enter City: </span> -->
 <mat-form-field appearance="fill" class="form_field">
   <input matInput  placeholder="{{searchCityPlacholder}}" [(ngModel)]="searchCity" />
   <mat-icon matSuffix (click)="search()">
-<img src="../../../assets/images/search-interface-symbol.png" alt="search_btn" style="width: 18px;" >
+<img src="../../../assets/images/search-interface-symbol.png" alt="search_btn" style="width: 18px;cursor: pointer;" >
   </mat-icon>
 </mat-form-field>
-<!-- <mat-card *ngIf="searchedCity">
-  <div class="search_city">
-    <div class="temp_outer">
-    <img src="../../../assets/images/sunny_(1).png" alt="weather_image" >
-    <span class="temp">{{searchedCity.temperature}} </span>
-    </div>
-    <div>
-    <p> Wind : {{searchedCity.wind}} </p>
-    <p>Humidity :  {{searchedCity.humidity}}</p>
-  </div>
-</div>
-</mat-card> -->
 <mat-card >
     <p class="date_time_font"> Current City Date : {{formattedDate}} &nbsp; | &nbsp; Current City Time : {{localCityTime}}</p>
     <h2 class="card_styles">{{location | titlecase}}</h2>
@@ -30,12 +14,6 @@
        <div class="div_width">
         <p>TEMPERATURE</p>
         <p class="degree">{{temperature}}<sup>o</sup></p>
-        <!-- <img *ngIf="checkMorning" src="../../../assets/images/sunny_(1).png" alt="morning">
-        <img *ngIf="checkAfterNoon" src="../../../assets/images/sunny_(1).png" alt="day">
-        <img *ngIf="checkNight" src="../../../assets/images/night-mode.png" alt="night">
-        <img *ngIf="checkMidNight" src="../../../assets/images/full-moon.png" alt="mid-night">
-        <img *ngIf="checkEvening" src="../../../assets/images/svg.png" alt="evening"> -->
-        <!-- <img [src]="timeOfDayImage" alt="Time of Day Image" /> -->
        </div>
        <div class="div_width">
         <ul>
@@ -45,27 +23,7 @@
         </ul>
        </div>
     </div>
-    <!-- <div class="more_info">
-      <div class="rise_div div_width_2">
-        <img src="../../../assets/images/sunrise_(1).png" alt="Rise" class="img_mobile laptop_size">
-        <span class="more_info_inner"><span class="sunriseTime">Sunrise</span> {{sunriseTime | weatherTimePipe}}</span>
-      </div>
-      <div class="set_div div_width_2">
-        <img src="../../../assets/images/sunny.png" alt="Rise" class="img_mobile laptop_size" >
-        <span class="more_info_inner"><span class="sunriseTime">Sunset</span> {{sunsetTime | weatherTimePipe}}</span>
-
-      </div>
-      <div class="high_div div_width_2">
-        <img src="../../../assets/images/sunny.png" alt="Rise"  class="img_mobile laptop_size">
-        <span class="more_info_inner">rise time </span>
-      </div>
-      <div class="low_div div_width_2">
-        <img src="../../../assets/images/sunny.png" alt="Rise"  class="img_mobile laptop_size">
-        <span class="more_info_inner">rise time </span>
-      </div>
-    </div> -->
     <div class="weather_info">
-
     <mat-card class="weather_1">
       <h2 class="weather_title">Weather Conditions</h2>
       <p> <span class="font_weight">Sky</span> : <span class="weather_desc"> {{weatherMain | titlecase}}</span></p>
@@ -75,7 +33,6 @@
       <h2 class="weather_title">Atmospheric Conditions</h2>
       <p><span class="font_weight">Visibility</span>  : <span class="weather_desc">{{visibility}} Km</span> </p>
       <p><span class="font_weight">Pressure</span>  : <span class="weather_desc">{{pressure}} mBar</span>  </p>
-
     </mat-card>
   </div>
 </mat-card>
