@@ -1,6 +1,6 @@
-🌦 WeatherWhiz! 
+🌦 SkyCast! 
 
-Welcome to the WeatherWhiz! app, your one-stop solution for up-to-the-minute weather information! With an array of powerful features, this app ensures you're always prepared for the elements.
+Welcome to the SkyCast! app, your one-stop solution for up-to-the-minute weather information! With an array of powerful features, this app ensures you're always prepared for the elements.
 
 📍 Automatic Location Detection
 Seamlessly identifies your current location to provide personalized weather details.
@@ -21,7 +21,7 @@ Stay ahead of the weather with forecasts and essential information at your finge
 🌐 Powered by OpenWeather API
 Reliable and accurate weather data sourced from OpenWeather API.
 Trust in the most dependable weather source for your forecasts.
-Discover the WeatherWhiz! App and be prepared for any climate, anywhere. Never let the weather catch you by surprise again!
+Discover the SkyCast! App and be prepared for any climate, anywhere. Never let the weather catch you by surprise again!
 
 # NgWeatherApp
 
