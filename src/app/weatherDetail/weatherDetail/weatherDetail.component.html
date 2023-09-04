@@ -1,13 +1,15 @@
 
 <div class="card_wrapper">
+  <p class="title">WEATHER WEB APP</p>
 <div class="main_card">
 <mat-form-field appearance="fill" class="form_field">
-  <input matInput  placeholder="{{searchCityPlacholder}}" [(ngModel)]="searchCity" />
+  <input matInput  placeholder="{{searchCityPlacholder}}" [(ngModel)]="searchCity" (keyup.enter)="search()"/>
   <mat-icon matSuffix (click)="search()">
 <img src="../../../assets/images/search-interface-symbol.png" alt="search_btn" style="width: 18px;cursor: pointer;" >
   </mat-icon>
+  <mat-hint class="mat_hint_class">click search icon or press Enter </mat-hint>
 </mat-form-field>
-<mat-card >
+<mat-card class="card_margin" >
     <p class="date_time_font"> Current City Date : {{formattedDate}} &nbsp; | &nbsp; Current City Time : {{localCityTime}}</p>
     <h2 class="card_styles">{{location | titlecase}}</h2>
     <div class="all_weather_info card_styles">
@@ -40,6 +42,8 @@
   <div data-test-id="no-results">No Results Found</div>
 </mat-card>
 </div>
+<p class="cpy">Version: 1.0.0 </p>
+<p class="cpy">Copyright © 2023 Pranav Labdhe</p>
 </div>
 
 

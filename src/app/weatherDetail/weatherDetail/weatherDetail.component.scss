@@ -3,9 +3,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding-top: 24px;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
 }
 .form_field{
   margin-left: 10px;
@@ -59,9 +60,6 @@
   position: absolute;
   top: -2px;
   left: 22px;
-}
-.set_time{
-
 }
 .more_info{
   width: 100%;
@@ -153,9 +151,6 @@
   .vl{
     display: none;
   }
-  .img_mobile{
-
-  }
   .laptop_size{
     width: auto;
   }
@@ -203,14 +198,9 @@
   .vl{
     display: none;
   }
-  .img_mobile{
 
-  }
   .laptop_size{
     width: auto;
-  }
-  .forecast{
-    // flex-direction: column;
   }
   .daily_forecast{
     width: 98%;
@@ -249,9 +239,7 @@
   .vl{
     display: none;
   }
-  .img_mobile{
 
-  }
   .laptop_size{
     width: auto;
   }
@@ -293,9 +281,6 @@
   .vl{
     display: none;
   }
-  .img_mobile{
-
-  }
   .laptop_size{
     width: auto;
   }
@@ -331,4 +316,20 @@
 .degree{
   font-size: 50px;
 }
-
+.title {
+  font-family: 'Nunito Sans', sans-serif;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 3.9px;
+  font-weight: bold;
+}
+.cpy {
+  font-family: "Nunito Sans", sans-serif;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+.card_margin{
+  margin-top: 8px;
+}

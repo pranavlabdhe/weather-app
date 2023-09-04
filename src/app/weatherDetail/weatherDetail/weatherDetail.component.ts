@@ -45,6 +45,7 @@ export class WeatherDetailComponent implements OnInit {
   timeOfDayImage!: string;
   onInitLat : string = '';
   onInitLong : string = '';
+  noResult: boolean = false;
   constructor(public weatherService: CommonService, private datePipe: DatePipe) {
    }
 
@@ -169,7 +170,16 @@ export class WeatherDetailComponent implements OnInit {
             this.cityLatitude,
             this.cityLongitude
           );
-          console.log(weatherResponse);
+
+          // No result
+            if(weatherResponse.cod === 404) {
+              this.noResult = true;
+              alert('No Such City')
+            } else {
+              this.noResult = false;
+            }
+
+
 
           // Use forkJoin to run both observables concurrently
           forkJoin([weatherData$, timezoneData$]).subscribe({
@@ -188,11 +198,14 @@ export class WeatherDetailComponent implements OnInit {
             },
             error: (error) => {
               console.log(error);
+    ;
+
             },
           });
         },
         error: (error) => {
           console.log(error);
+          alert('NO SUCH CITY !!')
         },
       });
     } else {
