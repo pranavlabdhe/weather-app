@@ -18,7 +18,7 @@ export class WeatherDetailComponent implements OnInit {
   // searchedCity : data | null = null;
   searchedCity!: string;
   weatherData : any;
-  location : string = 'mumbai';
+  location : string = '';
   formattedDate! : string;
   formatedTime : string = '';
   localCityTime : string = '';
@@ -46,12 +46,14 @@ export class WeatherDetailComponent implements OnInit {
   convertLatToString : string = '19.0144' ;
   convertLonToString : string = '72.8479' ;
   timeOfDayImage!: string;
+  onInitLat : string = '';
+  onInitLong : string = '';
   constructor(public weatherService: CommonService, private datePipe: DatePipe, private ngZone: NgZone) {
 
     // Format date as "Friday, 12 May 2023"
-    const currentDate = new Date();
-    const dateOrNull: string | null = this.datePipe.transform(currentDate, 'EEEE, dd MMMM yyyy');
-    this.formattedDate  = dateOrNull || '';
+    // const currentDate = new Date();
+    // const dateOrNull: string | null = this.datePipe.transform(currentDate, 'EEEE, dd MMMM yyyy');
+    // this.formattedDate  = dateOrNull || '';
 
     // // Format time as "11:44 AM"
     // const timeOrNull : string | null = this.datePipe.transform(currentDate, 'hh:mm a');
@@ -109,41 +111,68 @@ export class WeatherDetailComponent implements OnInit {
 
 
   ngOnInit() {
-
+    // this.getLocation();
     // const location = 'mumbai'; // Replace with the location you want to fetch weather data for
-    this.weatherService.getWeatherData(this.location , this.units).subscribe({
-      next:(data) => {
-        this.weatherData = data;
-        this.location = data.name;
-        this.temperature = data.main.temp;
-        this.feelsLike = data.main.feels_like
-        this.windDegree = data.wind.deg;
-        this.windSpeed = data.wind.speed;
-        this.humidity = data.main.humidity;
-        this.sunriseTime = data.sys.sunrise;
-        this.sunsetTime = data.sys.sunset;
-        this.weatherDesc = data.weather[0].description;
-        this.weatherMain = data.weather[0].main;
-        this.visibility = data.visibility / 1000;
-        this.pressure = data.main.pressure;
-        this.cityLatitude = data.coord.lat;
-        this.cityLongitude = data.coord.lon;
-        this.convertLatToString = data.coord.lat.toString();
-        this.convertLonToString = data.coord.lon.toString()
-        this.cityLatitude = this.convertLatToString;
-        this.cityLongitude = this.convertLonToString;
+    // this.weatherService.getOnitData(this.onInitLat,this.onInitLong).subscribe({
+    //   next:(data) => {
+    //     this.weatherData = data;
+    //     this.location = data.name;
+    //     this.temperature = data.main.temp;
+    //     this.feelsLike = data.main.feels_like
+    //     this.windDegree = data.wind.deg;
+    //     this.windSpeed = data.wind.speed;
+    //     this.humidity = data.main.humidity;
+    //     this.sunriseTime = data.sys.sunrise;
+    //     this.sunsetTime = data.sys.sunset;
+    //     this.weatherDesc = data.weather[0].description;
+    //     this.weatherMain = data.weather[0].main;
+    //     this.visibility = data.visibility / 1000;
+    //     this.pressure = data.main.pressure;
 
-        console.log(this.cityLatitude);
-        console.log(this.cityLongitude);
+    //     // this.cityLatitude = data.coord.lat;
+    //     // this.cityLongitude = data.coord.lon;
+    //     // this.convertLatToString = data.coord.lat.toString();
+    //     // this.convertLonToString = data.coord.lon.toString()
+    //     // this.cityLatitude = this.convertLatToString;
+    //     // this.cityLongitude = this.convertLonToString;
+
+    //     // console.log(this.cityLatitude);
+    //     // console.log(this.cityLongitude);
 
 
-        console.log(this.weatherData);
+    //     console.log(this.weatherData);
 
-      },
-      error: (error)=>{
-        console.log(error);
-      }
-    })
+    //   },
+    //   error: (error)=>{
+    //     console.log(error);
+    //   }
+    // })
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude.toString();
+          const longitude = position.coords.longitude.toFixed(2).toString();
+          this.onInitLat = latitude;
+          this.onInitLong = longitude
+          if (this.onInitLat && this.onInitLong) {
+            this.getWeatherData(this.onInitLat, this.onInitLong);
+          } else {
+            console.error('Latitude or longitude is undefined.');
+            // Handle the case where latitude or longitude is not available
+          }
+        },
+        (error) => {
+          console.error('Error getting user location:', error);
+          // Handle errors, such as when the user denies permission or if geolocation is unavailable
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+      // Handle the case where geolocation is not supported
+    }
+
+
     if (this.convertLatToString !== undefined && this.convertLonToString !== undefined) {
     this.weatherService.getTimeZone(this.convertLatToString, this.convertLonToString).subscribe({
       next : (data)=>{
@@ -162,9 +191,49 @@ export class WeatherDetailComponent implements OnInit {
     } else {
       console.log('Lat and Long not defined');
     }
+
+  }
+  getWeatherData(latitude: string, longitude: string) {
+    this.weatherService.getOnitData(latitude, longitude,this.units).subscribe({
+      next: (data) => {
+        this.weatherData = data;
+        this.location = data.name;
+        this.temperature = data.main.temp;
+        this.feelsLike = data.main.feels_like
+        this.windDegree = data.wind.deg;
+        this.windSpeed = data.wind.speed;
+        this.humidity = data.main.humidity;
+        this.sunriseTime = data.sys.sunrise;
+        this.sunsetTime = data.sys.sunset;
+        this.weatherDesc = data.weather[0].description;
+        this.weatherMain = data.weather[0].main;
+        this.visibility = data.visibility / 1000;
+        this.pressure = data.main.pressure;
+        console.log(this.weatherData);
+      },
+      error: (error) => {
+        console.error('Error fetching weather data:', error);
+        // Handle errors from the weather service API call
+      },
+    });
   }
 
-
+  // getLocation() {
+  //   if(navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition((positon)=>{
+  //       const geoLat = positon.coords.latitude.toString();
+  //       const geoLong = positon.coords.longitude.toString();
+  //       console.log(geoLat);
+  //       this.onInitLat = geoLat;
+  //       this.onInitLong = geoLong;
+  //     },(error)=>{
+  //       console.error('Error getting user location:', error);
+  //     }
+  //     );
+  //   } else {
+  //     console.error('Geolocation is not supported by this browser.');
+  //   }
+  // }
 
   search() {
     if (this.searchCity.toLowerCase().trim() !== '') {
@@ -198,6 +267,7 @@ export class WeatherDetailComponent implements OnInit {
             this.cityLatitude,
             this.cityLongitude
           );
+          console.log(weatherResponse);
 
           // Use forkJoin to run both observables concurrently
           forkJoin([weatherData$, timezoneData$]).subscribe({
@@ -211,6 +281,7 @@ export class WeatherDetailComponent implements OnInit {
               console.log('Time:', timePart);
 
               console.log(this.formatedTime);
+
               // this.timeOfDayImage = this.getTimeOfDayImage(, minute);
             },
             error: (error) => {
@@ -226,6 +297,7 @@ export class WeatherDetailComponent implements OnInit {
       return;
     }
   }
+
 
 }
 

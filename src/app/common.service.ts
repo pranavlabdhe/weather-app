@@ -13,12 +13,21 @@ export class CommonService {
   // private apiURL = 'http://api.timezonedb.com/v2.1/get-time-zone?key=1GJ9YWW98I18&format=json&by=position&lat=19.0144&lng=72.8479'
   private apiURL = 'http://api.timezonedb.com/v2.1/get-time-zone';
   private apiTzKey = '1GJ9YWW98I18';
+
+  //GET CITY DATA FROM LAT AND LONG will call only at ngOnInit
+  private initApiUrL = 'https://api.openweathermap.org/data/2.5/weather';
+  private initApitKey = '1046649a6930f986ba5740a6e01e6b7a';
   constructor(private httpClient:HttpClient) { }
 
-    getWeatherData(city:string, units:string):Observable<any>{
+    getWeatherData(city:string, units:string):Observable<any> {
       const params = new HttpParams().set('q',city).set('appid',this.apiKey).set('units',units)
       return this.httpClient.get(this.apiUrl,{ params })
     }
+    getOnitData(latitude: any, longitude: any, units:string): Observable<any> {
+      const params = new HttpParams().set('lat',latitude.toString()).set('lon' ,longitude.toString()).set('appid',this.initApitKey).set('units',units)
+      return this.httpClient.get(this.initApiUrL,{ params })
+    }
+
     getTimeZone(latitude: any, longitude: any): Observable<any> {
       const params = new HttpParams()
       .set('key', this.apiTzKey)
