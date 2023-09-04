@@ -83,9 +83,9 @@ export class WeatherDetailComponent implements OnInit {
         const [datePart , timePart] = this.formatedTime.split(' ')
         this.formattedDate = datePart;
         this.localCityTime = timePart
-        console.log('Date:', datePart);
-        console.log('Time:', timePart);
-        console.log(data);
+        // console.log('Date:', datePart);
+        // console.log('Time:', timePart);
+        // console.log(data);
       },
       error : (error)=>{
         console.log(error);
@@ -112,7 +112,7 @@ export class WeatherDetailComponent implements OnInit {
         this.weatherMain = data.weather[0].main;
         this.visibility = data.visibility / 1000;
         this.pressure = data.main.pressure;
-        console.log(this.weatherData);
+        // console.log(this.weatherData);
       },
       error: (error) => {
         console.error('Error fetching weather data:', error);
