@@ -10,10 +10,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import 'moment-timezone'; // Import moment-timezone
+import 'moment-timezone/moment-timezone-utils';
+import { WeatherTimePipePipe } from './weather-time-pipe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherDetailComponent
+    WeatherDetailComponent,
+    WeatherTimePipePipe
    ],
   imports: [
     BrowserModule,

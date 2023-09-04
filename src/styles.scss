@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
-  font-family: 'Roboto, "Helvetica Neue", sans-serif';
+  font-family: 'Nunito Sans', sans-serif;
   background-color: #F9FAFA;
-
 }
+.card_wrapper{
+  overflow: hidden !important;
+ }
+ body{
+  overflow: hidden !important;
+ }
