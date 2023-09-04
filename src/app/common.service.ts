@@ -11,7 +11,7 @@ export class CommonService {
   private apiKey = '1046649a6930f986ba5740a6e01e6b7a';
   // TIMEZONE API
   // private apiURL = 'http://api.timezonedb.com/v2.1/get-time-zone?key=1GJ9YWW98I18&format=json&by=position&lat=19.0144&lng=72.8479'
-  private apiURL = 'http://api.timezonedb.com/v2.1/get-time-zone';
+  private apiURL = 'https://api.timezonedb.com/v2.1/get-time-zone';
   private apiTzKey = '1GJ9YWW98I18';
 
   //GET CITY DATA FROM LAT AND LONG will call only at ngOnInit
