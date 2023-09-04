@@ -4,9 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 24px;
-  width: 100%;
-  height: 90vh;
+  padding: 16px;
 }
 .form_field{
   margin-left: 10px;
@@ -166,10 +164,25 @@
   }
   .main_card{
     width: 90%;
-    height: 100vh;
+    // height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .weather_info {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 13px;
+}
+  .weather_2 {
+    width: auto;
+    font-family: "Nunito Sans", sans-serif;
+  }
+  .weather_1 {
+    width: auto;
+    font-family: "Nunito Sans", sans-serif;
   }
 }
 // Small Tablet
@@ -323,7 +336,7 @@
   text-transform: uppercase;
   letter-spacing: 2.9px;
   font-weight: bold;
-  margin: 10px;
+  // margin: 10px;
 }
 .cpy {
   font-family: "Nunito Sans", sans-serif;
